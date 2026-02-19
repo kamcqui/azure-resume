@@ -4,47 +4,50 @@ using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Azure.Cosmos;
 
-public class GetResumeCounter
+namespace Api
 {
-    private readonly ILogger _logger;
-    private readonly Container _container;
-
-    public GetResumeCounter(ILoggerFactory loggerFactory)
+    public class GetResumeCounter
     {
-        _logger = loggerFactory.CreateLogger<GetResumeCounter>();
+        private readonly ILogger _logger;
+        private readonly Container _container;
 
-        string connectionString = Environment.GetEnvironmentVariable("COSMOS_CONNECTION_STRING");
+        public GetResumeCounter(ILoggerFactory loggerFactory)
+        {
+            _logger = loggerFactory.CreateLogger<GetResumeCounter>();
 
-        var client = new CosmosClient(connectionString);
-        _container = client.GetContainer("cloudresume", "counter");
+            string connectionString = Environment.GetEnvironmentVariable("COSMOS_CONNECTION_STRING");
+
+            var client = new CosmosClient(connectionString);
+            _container = client.GetContainer("cloudresume", "counter");
+        }
+
+        [Function("GetResumeCounter")]
+        public async Task<HttpResponseData> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req)
+        {
+            _logger.LogInformation("Processing resume counter request.");
+
+            // Read item
+            var response = await _container.ReadItemAsync<Counter>("1", new PartitionKey("1"));
+            var counter = response.Resource;
+
+            // Increment
+            counter.count += 1;
+
+            // Save updated value
+            await _container.ReplaceItemAsync(counter, "1", new PartitionKey("1"));
+
+            // Return JSON
+            var httpResponse = req.CreateResponse(HttpStatusCode.OK);
+            await httpResponse.WriteAsJsonAsync(counter);
+
+            return httpResponse;
+        }
     }
 
-    [Function("GetResumeCounter")]
-    public async Task<HttpResponseData> Run(
-        [HttpTrigger(AuthorizationLevel.Anonymous, "get")] HttpRequestData req)
+    public class Counter
     {
-        _logger.LogInformation("Processing resume counter request.");
-
-        // Read item
-        var response = await _container.ReadItemAsync<Counter>("1", new PartitionKey("1"));
-        var counter = response.Resource;
-
-        // Increment
-        counter.count += 1;
-
-        // Save updated value
-        await _container.ReplaceItemAsync(counter, "1", new PartitionKey("1"));
-
-        // Return JSON
-        var httpResponse = req.CreateResponse(HttpStatusCode.OK);
-        await httpResponse.WriteAsJsonAsync(counter);
-
-        return httpResponse;
+        public string id { get; set; }
+        public int count { get; set; }
     }
-}
-
-public class Counter
-{
-    public string id { get; set; }
-    public int count { get; set; }
 }
