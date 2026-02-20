@@ -26,7 +26,7 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WITTY_TREE_0AB48F80F }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "/frontend" 
+          app_location: "frontend" 
           api_location: "backend/api"
           output_location: "" # Leave empty for simple HTML sites
 
@@ -41,4 +41,4 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_WITTY_TREE_0AB48F80F }}
           action: "close"
-          app_location: "/frontend" # <--- ADD THIS LINE
+          app_location: "frontend" # <--- ADD THIS LINE
