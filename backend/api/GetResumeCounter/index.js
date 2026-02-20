@@ -5,8 +5,8 @@ module.exports = async function (context, req) {
 
     const client = new CosmosClient(connectionString);
 
-    const database = client.database("cloudresume");
-    const container = database.container("counter");
+    const database = client.database("AzureResume");
+    const container = database.container("Counter");
 
     const id = "1"; // your counter document ID
 
