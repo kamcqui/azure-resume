@@ -281,6 +281,14 @@ ul#nav li.current a { color: #F06000; }
    margin-top: 6px;
 }
 
+/* Remove trailing divider/spacing from the last item in Resume,
+   so the transition into Projects matches every other section transition */
+#resume > .row:last-of-type {
+   margin-bottom: 0;
+   padding-bottom: 0;
+   border-bottom: none;
+}
+
 /*----------------------------------------------*/
 /*	Skill Bars
 /*----------------------------------------------*/
@@ -1049,4 +1057,3 @@ footer .social-links li:first-child { margin-left: 0; }
    font: 15px/24px 'opensans-regular', sans-serif;
    margin-top: 6px;
 }
-
