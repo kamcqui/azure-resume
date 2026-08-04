@@ -20,17 +20,21 @@
 ------------------------------------------------------ */
 
    $('.smoothscroll').on('click',function (e) {
-	    e.preventDefault();
+    e.preventDefault();
 
-	    var target = this.hash,
-	    $target = $(target);
+    var target = this.hash,
+    $target = $(target);
 
-	    $('html, body').stop().animate({
-	        'scrollTop': $target.offset().top
-	    }, 800, 'swing', function () {
-	        window.location.hash = target;
-	    });
-	});
+    // Immediately highlight the clicked link — don't wait on scroll waypoints
+    navigation_links.parent().removeClass("current");
+    $('#nav-wrap a[href="' + target + '"]').parent().addClass("current");
+
+    $('html, body').stop().animate({
+        'scrollTop': $target.offset().top
+    }, 800, 'swing', function () {
+        window.location.hash = target;
+    });
+});
 
 
 /*----------------------------------------------------*/
