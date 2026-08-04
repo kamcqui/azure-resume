@@ -1043,9 +1043,7 @@ footer .social-links li:first-child { margin-left: 0; }
 #projects .main-col { padding-right: 10%; }
 
 #projects .row.item {
-   margin-bottom: 48px;
-   padding-bottom: 24px;
-   border-bottom: 1px solid #E8E8E8;
+   margin-bottom: 36px;
 }
 #projects .info {
    font: 16px/24px 'librebaskerville-italic', serif;
