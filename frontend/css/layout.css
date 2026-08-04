@@ -1047,3 +1047,157 @@ footer .social-links li:first-child { margin-left: 0; }
    font: 15px/24px 'opensans-regular', sans-serif;
    margin-top: 6px;
 }
+
+/* ------------------------------------------------------------------ */
+/* Nimbus Chat Widget
+/* ------------------------------------------------------------------ */
+
+#nimbus-widget {
+   position: fixed;
+   bottom: 24px;
+   right: 24px;
+   z-index: 500;
+}
+
+#nimbus-toggle {
+   width: 60px;
+   height: 60px;
+   border-radius: 100%;
+   background: #11ABB0;
+   color: #fff;
+   border: none;
+   font-size: 24px;
+   cursor: pointer;
+   box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+   -webkit-transition: all 0.2s ease-in-out;
+   -moz-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+}
+#nimbus-toggle:hover {
+   background: #0F9095;
+   transform: scale(1.05);
+}
+
+#nimbus-panel {
+   position: absolute;
+   bottom: 76px;
+   right: 0;
+   width: 340px;
+   max-width: 90vw;
+   background: #fff;
+   border-radius: 10px;
+   box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+}
+#nimbus-panel.nimbus-hidden {
+   display: none;
+}
+
+.nimbus-header {
+   background: #11ABB0;
+   color: #fff;
+   padding: 14px 16px;
+   font: 14px 'opensans-bold', sans-serif;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+.nimbus-header button {
+   background: none;
+   border: none;
+   color: #fff;
+   font-size: 20px;
+   line-height: 1;
+   cursor: pointer;
+   padding: 0;
+}
+
+.nimbus-messages {
+   padding: 14px;
+   height: 300px;
+   overflow-y: auto;
+   background: #F7F8F8;
+}
+
+.nimbus-suggestions {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 6px;
+   padding: 0 14px 14px 14px;
+   background: #F7F8F8;
+}
+.nimbus-suggestions.nimbus-hidden {
+   display: none;
+}
+.nimbus-chip {
+   background: #fff;
+   border: 1px solid #11ABB0;
+   color: #11ABB0;
+   border-radius: 20px;
+   padding: 6px 12px;
+   font-size: 12px;
+   cursor: pointer;
+
+   -webkit-transition: all 0.2s ease-in-out;
+   transition: all 0.2s ease-in-out;
+}
+.nimbus-chip:hover {
+   background: #11ABB0;
+   color: #fff;
+}
+
+.nimbus-input-row {
+   display: flex;
+   gap: 8px;
+   padding: 12px;
+   background: #fff;
+   border-top: 1px solid #E8E8E8;
+}
+.nimbus-input-row input {
+   flex: 1;
+   padding: 10px 12px;
+   margin: 0;
+   min-width: 0;
+   font-size: 14px;
+   border: 1px solid #E8E8E8;
+   border-radius: 4px;
+   color: #313131;
+   background: #fff;
+}
+.nimbus-input-row .button {
+   margin: 0;
+   padding: 10px 16px;
+   font-size: 13px;
+}
+
+.chat-message {
+   padding: 10px 14px;
+   border-radius: 6px;
+   margin-bottom: 10px;
+   max-width: 85%;
+   font-size: 13px;
+   line-height: 20px;
+}
+.chat-message.bot {
+   background: #fff;
+   border: 1px solid #E8E8E8;
+   color: #313131;
+}
+.chat-message.user {
+   background: #11ABB0;
+   color: #fff;
+   margin-left: auto;
+}
+.chat-message.thinking {
+   font-style: italic;
+   color: #A1A1A1;
+}
+
+@media only screen and (max-width: 767px) {
+   #nimbus-panel {
+      width: calc(100vw - 48px);
+   }
+}
