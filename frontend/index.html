@@ -47,12 +47,11 @@
          <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
          <ul id="nav" class="nav">
-            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
-            <li><a class="smoothscroll" href="#about">About</a></li>
-            <li><a class="smoothscroll" href="#resume">Resume</a></li>
-         </ul> <!-- end #nav -->
-
-      </nav> <!-- end #nav-wrap -->
+   <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+   <li><a class="smoothscroll" href="#about">About</a></li>
+   <li><a class="smoothscroll" href="#resume">Resume</a></li>
+   <li><a class="smoothscroll" href="#projects">Projects</a></li>
+      </ul> <!-- end #nav -->
 
       <div class="row banner">
          <div class="banner-text">
@@ -304,6 +303,53 @@
 
    </section> <!-- Resume Section End-->
 
+   <!-- Projects Section
+================================================== -->
+<section id="projects">
+
+   <div class="row">
+
+      <div class="three columns header-col">
+         <h1><span>Projects</span></h1>
+      </div>
+
+      <div class="nine columns main-col">
+
+         <div class="row item">
+            <div class="twelve columns">
+               <h3>kevininthecloud.com</h3>
+               <p class="info">Cloud Resume Challenge<span>&bull;</span> <em class="date">2026</em></p>
+               <p>
+                  Static Web App + Azure Function (JavaScript) + Cosmos DB visitor counter, deployed via GitHub Actions CI/CD.
+               </p>
+               <p>
+                  <a href="https://kevininthecloud.com">Live Site</a> &nbsp;|&nbsp;
+                  <a href="https://github.com/kamcqui">GitHub</a>
+               </p>
+            </div>
+         </div> <!-- item end -->
+
+         <div class="row item">
+            <div class="twelve columns">
+               <h3>Learn with KITC</h3>
+               <p class="info">AI-Powered Study Feed <span>&bull;</span> <em class="date">2026</em></p>
+               <p>
+                 AI-powered doomscroll-style cert study feed built with Azure Static Web Apps, Azure Functions, Key Vault, Managed Identity, and the Claude API. 
+               </p>
+               <p>
+                  <a href="#">Live Site</a> &nbsp;|&nbsp;
+                  <a href="https://github.com/kamcqui">GitHub</a>
+               </p>
+            </div>
+         </div> <!-- item end -->
+
+
+      </div> <!-- main-col end -->
+
+   </div>
+
+</section> <!-- Projects Section End-->
+
 
    <!-- footer
    ================================================== -->
@@ -353,7 +399,7 @@
       var greeting = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
       var el = document.getElementById("greeting");
       if (el) {
-         el.textContent = greeting + ", I'm Kevin";
+         el.textContent = greeting + "My name is Kevin, and this is my Azure Cloud Resume.";
       }
    })();
 </script>
