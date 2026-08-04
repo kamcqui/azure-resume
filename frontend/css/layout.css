@@ -1004,3 +1004,49 @@ footer .social-links li:first-child { margin-left: 0; }
 }
 #go-top a:hover { background-color: #0F9095; }
 
+/* ------------------------------------------------------------------ */
+/* Projects Section (matches Resume section styling)
+/* ------------------------------------------------------------------ */
+
+#projects {
+   background: #fff;
+   padding-top: 90px;
+   padding-bottom: 72px;
+   overflow: hidden;
+}
+
+#projects a, #projects a:visited  { color: #11ABB0; }
+#projects a:hover, #projects a:focus { color: #313131; }
+
+#projects h1 {
+   font: 18px/24px 'opensans-bold', sans-serif;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+}
+#projects h1 span {
+   border-bottom: 3px solid #11ABB0;
+   padding-bottom: 6px;
+}
+#projects h3 {
+   font: 25px/30px 'opensans-bold', sans-serif;
+}
+
+#projects .header-col { padding-top: 9px; }
+#projects .main-col { padding-right: 10%; }
+
+#projects .row.item {
+   margin-bottom: 48px;
+   padding-bottom: 24px;
+   border-bottom: 1px solid #E8E8E8;
+}
+#projects .info {
+   font: 16px/24px 'librebaskerville-italic', serif;
+   color: #6E7881;
+   margin-bottom: 18px;
+   margin-top: 9px;
+}
+#projects .date {
+   font: 15px/24px 'opensans-regular', sans-serif;
+   margin-top: 6px;
+}
+
