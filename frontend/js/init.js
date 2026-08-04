@@ -19,13 +19,16 @@
 /* Smooth Scrolling
 ------------------------------------------------------ */
 
-   $('.smoothscroll').on('click',function (e) {
+var isClickScrolling = false;
+
+$('.smoothscroll').on('click',function (e) {
     e.preventDefault();
 
     var target = this.hash,
     $target = $(target);
 
-    // Immediately highlight the clicked link — don't wait on scroll waypoints
+    isClickScrolling = true;
+
     navigation_links.parent().removeClass("current");
     $('#nav-wrap a[href="' + target + '"]').parent().addClass("current");
 
@@ -33,6 +36,7 @@
         'scrollTop': $target.offset().top
     }, 800, 'swing', function () {
         window.location.hash = target;
+        isClickScrolling = false;
     });
 });
 
@@ -41,27 +45,29 @@
 /* Highlight the current section in the navigation bar
 ------------------------------------------------------*/
 
-	var sections = $("section");
-	var navigation_links = $("#nav-wrap a");
+var sections = $("section");
+var navigation_links = $("#nav-wrap a");
 
-	sections.waypoint({
+sections.waypoint({
 
-      handler: function(event, direction) {
+   handler: function(event, direction) {
 
-		   var active_section;
+      if (isClickScrolling) return; // ignore waypoint updates mid-click-scroll
 
-			active_section = $(this);
-			if (direction === "up") active_section = active_section.prev();
+      var active_section;
 
-			var active_link = $('#nav-wrap a[href="#' + active_section.attr("id") + '"]');
+      active_section = $(this);
+      if (direction === "up") active_section = active_section.prev();
 
-         navigation_links.parent().removeClass("current");
-			active_link.parent().addClass("current");
+      var active_link = $('#nav-wrap a[href="#' + active_section.attr("id") + '"]');
 
-		},
-		offset: '35%'
+      navigation_links.parent().removeClass("current");
+      active_link.parent().addClass("current");
 
-	});
+   },
+   offset: '35%'
+
+});
 
 
 /*----------------------------------------------------*/
