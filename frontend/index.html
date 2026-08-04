@@ -56,7 +56,7 @@
 
       <div class="row banner">
          <div class="banner-text">
-            <h1 class="responsive-headline">Hi, I'm Kevin</h1>
+            <h1 class="responsive-headline" id="greeting">Hi, I'm Kevin</h1>
 
             <p>This page has been viewed <a id="counter"></a> times.</p>
             <ul class="social">
@@ -347,7 +347,16 @@
    <script src="js/jquery.fittext.js"></script>
    <script src="js/magnific-popup.js"></script>
    <script src="js/init.js"></script>
-
+   <script>
+   (function () {
+      var hour = new Date().getHours();
+      var greeting = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+      var el = document.getElementById("greeting");
+      if (el) {
+         el.textContent = greeting + ", I'm Kevin";
+      }
+   })();
+</script>
 </body>
 
 </html>
