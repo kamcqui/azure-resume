@@ -438,6 +438,84 @@
       </div>
 
    </div> <!-- Nimbus Widget End -->
+
+	<script>
+   (function () {
+      var toggleBtn = document.getElementById('nimbus-toggle');
+      var closeBtn = document.getElementById('nimbus-close');
+      var panel = document.getElementById('nimbus-panel');
+      var messages = document.getElementById('nimbus-messages');
+      var input = document.getElementById('nimbus-input');
+      var sendBtn = document.getElementById('nimbus-send');
+      var suggestions = document.getElementById('nimbus-suggestions');
+      var chips = document.querySelectorAll('.nimbus-chip');
+
+      toggleBtn.addEventListener('click', function () {
+         panel.classList.toggle('nimbus-hidden');
+         if (!panel.classList.contains('nimbus-hidden')) {
+            input.focus();
+         }
+      });
+
+      closeBtn.addEventListener('click', function () {
+         panel.classList.add('nimbus-hidden');
+      });
+
+      function addMessage(text, sender) {
+         var msg = document.createElement('div');
+         msg.className = 'chat-message ' + sender;
+         msg.textContent = text;
+         messages.appendChild(msg);
+         messages.scrollTop = messages.scrollHeight;
+      }
+
+      function sendMessage(overrideText) {
+         var text = (overrideText || input.value).trim();
+         if (!text) return;
+
+         suggestions.classList.add('nimbus-hidden');
+
+         addMessage(text, 'user');
+         input.value = '';
+         sendBtn.disabled = true;
+
+         var thinking = document.createElement('div');
+         thinking.className = 'chat-message bot thinking';
+         thinking.textContent = 'Nimbus is thinking...';
+         messages.appendChild(thinking);
+         messages.scrollTop = messages.scrollHeight;
+
+         fetch('/api/AskAboutKevin', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: text })
+         })
+         .then(function (res) { return res.json(); })
+         .then(function (data) {
+            thinking.remove();
+            addMessage(data.reply || "Sorry, something went wrong.", 'bot');
+         })
+         .catch(function () {
+            thinking.remove();
+            addMessage("Sorry, I couldn't reach the server. Try again in a moment.", 'bot');
+         })
+         .finally(function () {
+            sendBtn.disabled = false;
+         });
+      }
+
+      chips.forEach(function (chip) {
+         chip.addEventListener('click', function () {
+            sendMessage(chip.textContent);
+         });
+      });
+
+      sendBtn.addEventListener('click', function () { sendMessage(); });
+      input.addEventListener('keypress', function (e) {
+         if (e.key === 'Enter') sendMessage();
+      });
+   })();
+</script>
 	
 </body>
 
