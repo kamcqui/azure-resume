@@ -284,9 +284,9 @@ ul#nav li.current a { color: #F06000; }
 /* Remove trailing divider/spacing from the last item in Resume,
    so the transition into Projects matches every other section transition */
 #resume > .row:last-of-type {
-   margin-bottom: 0;
-   padding-bottom: 0;
-   border-bottom: none;
+   margin-bottom: 24px;
+   padding-bottom: 24px;
+   border-bottom: 1px solid #E8E8E8;
 }
 
 /*----------------------------------------------*/
