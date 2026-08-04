@@ -398,6 +398,47 @@
       }
    })();
 </script>
+
+	<!-- Nimbus Chat Widget
+   ================================================== -->
+   <div id="nimbus-widget">
+
+      <button id="nimbus-toggle" aria-label="Chat with Nimbus">
+         <i class="fa fa-comment"></i>
+      </button>
+
+      <div id="nimbus-panel" class="nimbus-hidden">
+
+         <div class="nimbus-header">
+            <span>☁️ Nimbus — Ask about Kevin</span>
+            <button id="nimbus-close" aria-label="Close chat">&times;</button>
+         </div>
+
+         <div id="nimbus-messages" class="nimbus-messages">
+            <div class="chat-message bot">
+               Hi, I'm Nimbus ☁️ — ask me anything about Kevin's background, certs, or projects.
+            </div>
+         </div>
+
+         <div id="nimbus-suggestions" class="nimbus-suggestions">
+            <button class="nimbus-chip">What certifications does Kevin have?</button>
+            <button class="nimbus-chip">What's his work experience?</button>
+            <button class="nimbus-chip">What projects has he built?</button>
+            <button class="nimbus-chip">What roles is he targeting?</button>
+            <button class="nimbus-chip">What's he working toward with his WGU degree?</button>
+            <button class="nimbus-chip">Is he pursuing any other certifications?</button>
+            <button class="nimbus-chip">What does he do day-to-day at PCR?</button>
+         </div>
+
+         <div class="nimbus-input-row">
+            <input type="text" id="nimbus-input" placeholder="Ask Nimbus..." />
+            <button id="nimbus-send" class="button">Send</button>
+         </div>
+
+      </div>
+
+   </div> <!-- Nimbus Widget End -->
+	
 </body>
 
 </html>
