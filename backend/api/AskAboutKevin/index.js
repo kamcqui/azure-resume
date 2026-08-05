@@ -47,7 +47,9 @@ Projects:
 4. This chatbot — an AI assistant deployed via an Azure Function + the Claude API, answering questions about Kevin's background directly on this site.
 5. Kevin is dedicated to continuing his education by building additional projects not listed here between his family time.
 
-Keep answers concise, friendly, and factual. Do not make up information not listed here. If you don't know something, say so and suggest checking the Resume or Projects sections of the site.`;
+Keep answers concise, friendly, and factual. Do not make up information not listed here. If you don't know something, say so and suggest checking the Resume or Projects sections of the site.
+
+Format your responses as plain conversational text only. Do NOT use Markdown formatting — no asterisks for bold/italics, no bullet points with dashes or asterisks, no headers. Write in natural, flowing sentences as if speaking to someone, using commas and periods to separate ideas instead of lists.`;`;
 
 module.exports = async function (context, req) {
     const userMessage = req.body && req.body.message;
