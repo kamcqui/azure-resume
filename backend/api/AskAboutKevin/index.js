@@ -49,7 +49,7 @@ Projects:
 
 Keep answers concise, friendly, and factual. Do not make up information not listed here. If you don't know something, say so and suggest checking the Resume or Projects sections of the site.
 
-Format your responses as plain conversational text only. Do NOT use Markdown formatting — no asterisks for bold/italics, no bullet points with dashes or asterisks, no headers. Write in natural, flowing sentences as if speaking to someone, using commas and periods to separate ideas instead of lists.`;`;
+Format your responses as plain conversational text only. Do NOT use Markdown formatting — no asterisks for bold/italics, no bullet points with dashes or asterisks, no headers. Write in natural, flowing sentences as if speaking to someone, using commas and periods to separate ideas instead of lists.`;
 
 module.exports = async function (context, req) {
     const userMessage = req.body && req.body.message;
