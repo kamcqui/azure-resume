@@ -19,7 +19,7 @@ Previous Role:
 
 Education:
 - Western Governors University — B.Sc., Cloud Computing and Network Engineering (2026, in progress)
-- Roughly 35% of required credit units already banked, combining transfer credits, completed certifications, and coursework
+- Roughly 38% of required credit units already banked and completed, combining transfer credits, completed certifications, and coursework
 
 Certifications:
 - Microsoft Azure: Azure Administrator Associate (AZ-104), Azure Fundamentals (AZ-900), Azure Data Fundamentals (DP-900), Azure AI Fundamentals (AI-900)
