@@ -1169,10 +1169,11 @@ footer .social-links li:first-child { margin-left: 0; }
 }
 
 .nimbus-input-row input:focus {
-   outline: none;
-   border-color: #F06000;
+   outline: none !important;
+   border-color: #F06000 !important;
+   background-color: #fff !important;
    box-shadow: 0 0 0 2px rgba(240, 96, 0, 0.15);
-}	
+}
 
 .nimbus-input-row .button {
    margin: 0;
