@@ -1200,8 +1200,26 @@ footer .social-links li:first-child { margin-left: 0; }
    color: #A1A1A1;
 }
 
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 480px) {
    #nimbus-panel {
-      width: calc(100vw - 48px);
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      width: auto;
+      max-width: none;
+      height: auto;
+      max-height: calc(100vh - 40px);
+   }
+
+   .nimbus-messages {
+      flex: 1;
+      height: auto;
+   }
+
+   .nimbus-header button {
+      font-size: 28px;
+      padding: 8px;
    }
 }
